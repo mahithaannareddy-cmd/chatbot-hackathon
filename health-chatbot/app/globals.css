@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* 🌤 Light & 🌙 Dark Mode Base Colors */
+:root {
+  --background: #f5f7fa; /* soft light gray-blue */
+  --foreground: #1a1a1a; /* almost black text */
+  --accent: #4f46e5; /* indigo blue for buttons or highlights */
+  --accent-muted: #6366f1; /* lighter indigo for hover states */
+  --muted: #e2e8f0; /* subtle gray for message bubbles or panels */
+  --card: #ffffff; /* clean white for chat cards */
+  --border: #d0d7de; /* gentle border lines */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1117; /* dark slate */
+    --foreground: #e6edf3; /* light gray text */
+    --accent: #8b5cf6; /* soft violet-blue */
+    --accent-muted: #a78bfa; /* lighter violet */
+    --muted: #161b22; /* chat bubble backgrounds */
+    --card: #1e293b; /* dark card panels */
+    --border: #2d3748; /* muted border */
+  }
+}
+
+/* 🌈 Base Styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", "Geist Sans", "Arial", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 💬 Optional chatbot enhancements */
+.chat-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chat-message {
+  background: var(--muted);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  max-width: 75%;
+  line-height: 1.5;
+}
+
+.chat-message.user {
+  background: var(--accent);
+  color: white;
+  margin-left: auto;
+}
+
+.chat-message.bot {
+  background: var(--muted);
+  color: var(--foreground);
+}
